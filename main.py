@@ -4,9 +4,9 @@ import time
 
 
 SCREEN_SQUARE_SIZE = 800
-BLOCK_SIZE = 8
+BLOCK_SIZE = 4
 NUMBER_OF_BLOCKS = int(SCREEN_SQUARE_SIZE / BLOCK_SIZE)
-MAX_NUMBER_OF_CELLS = int(NUMBER_OF_BLOCKS / random.choice([5, 6, 7, 8, 9, 10]))
+MAX_NUMBER_OF_CELLS = int(NUMBER_OF_BLOCKS / random.choice(range(1, 15)))
 
 # COLORS
 BLACK = (0, 0, 0)
@@ -33,7 +33,7 @@ def draw_state(current_state, display_screen):
             if current_state[row][column] == 0:
                 color = BLACK
             else:
-                color = (random.choice(range(0, 255)), random.choice(range(0, 255)), random.choice(range(0, 255)))
+                color = (random.choice(range(10, 255)), random.choice(range(0, 255)), random.choice(range(10, 255)))
 
             matrix_j = column * BLOCK_SIZE
             pygame.draw.rect(display_screen, color, (matrix_i, matrix_j, BLOCK_SIZE, BLOCK_SIZE))
